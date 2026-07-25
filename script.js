@@ -6,10 +6,17 @@ let shoppingList = [];
 
 function addItem(){
     
-    let item = prompt("what would you like to add?: ");
+ let item = prompt("what would you like to add?: ");
+    
     if (item ===""){
         alert("Please enter an item!");
+        return;
+    }else if  (shoppingList.includes(item)) {
+        document.getElementById("shop").textContent =
+            `${item} is already in your shopping list!`;
+        return; 
     }
+
     shoppingList.push(item);
 
     document.getElementById("shop").innerHTML=`${item} has been 
@@ -19,11 +26,11 @@ function addItem(){
 }
 function removeLastItem(){
 
-    let item = prompt("what would you like to remove?: ");
-    shoppingList.pop(item);
+    let removedItem = shoppingList.pop();
 
-    document.getElementById("shop").innerHTML=`${item} has been 
+    document.getElementById("shop").textContent =`${removedItem} has been 
     successfully removed to the cart`;
+
     document.getElementById("cart").innerHTML=`
     current cart: ${shoppingList}`; 
 }
