@@ -7,7 +7,7 @@ let shoppingList = [];
 function addItem(){
     
  let item = prompt("what would you like to add?: ");
-    
+    item = item[0].toUpperCase() + item.slice(1).toLowerCase();
     if (item ===""){
         alert("Please enter an item!");
         return;
@@ -16,7 +16,7 @@ function addItem(){
             `${item} is already in your shopping list!`;
         return; 
     }
-
+    
     shoppingList.push(item);
 
     document.getElementById("shop").innerHTML=`${item} has been 
